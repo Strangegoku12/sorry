@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>I'm Sorry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: dark;
+  --night:#0d1836;
+  --ink:#08102a;
+  --deep:#16244a;
+  --gold:#f0cd7a;
+  --blush:#f6cfd9;
+  --rose:#e2708a;
+  --cream:#fff3e3;
+  --mute:#b9c2dd;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --deva:'Cormorant Garamond',Georgia,serif;
+  --hand:'DM Sans','Segoe UI',system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--night:#0d1836}}
+:root[data-theme="dark"]{--night:#0d1836}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--night);
+  background-image:radial-gradient(1200px 600px at 50% -10%,#1f3272 0%,transparent 60%),
+                   radial-gradient(800px 500px at 90% 60%,#2a1d4a55 0%,transparent 70%);
+  color:var(--cream);
+  font-family:var(--hand);
+  font-size:1.05rem;
+  line-height:1.75;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;min-height:100svh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:110px 22px 60px;text-align:center;
+}
+.wire{position:absolute;top:0;left:0;width:100%;height:120px;pointer-events:none}
+.wire path{fill:none;stroke:#8d95b3;stroke-width:1.2;opacity:.6}
+.bulb{fill:#4a4f6a;transition:fill .5s,filter .5s}
+.bulb.on{fill:var(--gold);filter:drop-shadow(0 0 6px #f0cd7a) drop-shadow(0 0 14px #f0cd7acc)}
+.bulb.on.tw{animation:tw 3.2s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:1}50%{opacity:.55}}
+
+.arch{
+  width:min(270px,66vw);aspect-ratio:3/4;
+  border-radius:999px 999px 22px 22px;
+  overflow:hidden;
+  border:3px solid var(--gold);
+  box-shadow:0 0 0 8px #f0cd7a1f,0 30px 70px #000a;
+  margin-bottom:34px;
+}
+.arch img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.hero h1{
+  font-family:var(--deva);font-weight:500;
+  font-size:clamp(2.8rem,9vw,5rem);line-height:1.15;
+  color:var(--cream);
+}
+.hero .sub{
+  font-family:var(--serif);font-style:italic;font-weight:500;
+  font-size:clamp(1.35rem,4vw,1.9rem);color:var(--blush);margin-top:8px;
+}
+.hero .hint{margin-top:34px;color:var(--mute);font-size:1rem}
+.hero .hint span{display:inline-block;animation:bob 2.2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(7px)}}
+
+/* ---------- SECTIONS ---------- */
+section{padding:84px 22px;max-width:920px;margin:0 auto}
+h2{
+  font-family:var(--deva);font-weight:500;
+  font-size:clamp(2rem,6vw,3rem);line-height:1.25;
+  color:var(--gold);margin-bottom:10px;
+}
+.lead{font-family:var(--serif);font-style:italic;font-size:1.35rem;color:var(--mute);margin-bottom:38px}
+
+/* letter */
+.letter{
+  background:var(--cream);color:#3b2a2f;
+  padding:44px clamp(22px,6vw,58px);
+  border-radius:6px 26px 6px 26px;
+  box-shadow:0 26px 60px #0008;
+  transform:rotate(-.6deg);
+  position:relative;
+}
+.letter::before{
+  content:"";position:absolute;inset:10px;border:1.5px dashed #d9a5b3;border-radius:4px 20px 4px 20px;pointer-events:none;
+}
+.letter p{margin-bottom:1.05em;max-width:60ch;font-family:var(--serif);font-size:1.3rem;line-height:1.7;font-weight:500}
+.letter .to{font-size:1.7rem!important;color:#b03a5a;margin-bottom:.5em}
+.letter .sign{font-family:var(--serif);font-style:italic;font-size:1.6rem;color:#b03a5a;margin-top:1.2em;margin-bottom:0}
+.letter mark{background:linear-gradient(transparent 55%,#f6c6d2 55%);color:inherit;padding:0 2px}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:34px 26px;align-items:start}
+.pol{
+  background:var(--cream);padding:12px 12px 16px;border-radius:4px;color:#3b2a2f;
+  box-shadow:0 18px 40px #0008;
+  transition:transform .35s cubic-bezier(.2,.8,.3,1);
+}
+.pol:nth-child(1){transform:rotate(-3deg)}
+.pol:nth-child(2){transform:rotate(2.2deg) translateY(18px)}
+.pol:nth-child(3){transform:rotate(-1.6deg)}
+.pol:hover,.pol:focus-within{transform:rotate(0) scale(1.03)}
+.pol img{width:100%;aspect-ratio:1/1.05;object-fit:cover;border-radius:2px}
+.pol.wide img{object-position:50% 40%}
+.pol figcaption{font-family:var(--hand);font-size:1.02rem;text-align:center;margin-top:12px;line-height:1.45}
+
+/* promises */
+.promises{list-style:none;display:grid;gap:14px;max-width:620px}
+.promises li{
+  display:flex;align-items:center;gap:16px;
+  padding:16px 20px;border-radius:16px;cursor:pointer;
+  background:#ffffff0d;border:1px solid #ffffff1f;
+  transition:background .3s,border-color .3s;
+  user-select:none;
+}
+.promises li:hover{background:#ffffff16}
+.promises .chk{
+  flex:none;width:30px;height:30px;border-radius:50%;
+  border:2px solid var(--gold);display:grid;place-items:center;
+  font-size:.95rem;color:transparent;transition:all .3s;
+}
+.promises li.done{background:#e2708a26;border-color:var(--rose)}
+.promises li.done .chk{background:var(--rose);border-color:var(--rose);color:#fff}
+.promises li.done .t{text-decoration:line-through;text-decoration-color:#ffffff55;color:var(--blush)}
+
+/* ask */
+.ask{text-align:center}
+.ask h2{font-size:clamp(2.2rem,8vw,3.8rem);color:var(--cream)}
+.arena{
+  position:relative;height:190px;max-width:520px;margin:34px auto 0;
+}
+.btn{
+  font-family:var(--hand);font-size:1.15rem;font-weight:700;
+  border:none;border-radius:999px;padding:15px 30px;cursor:pointer;
+  transition:transform .2s,box-shadow .2s;
+}
+.yes{
+  background:linear-gradient(135deg,#ff9bb3,#e2708a);color:#3a0f1d;
+  box-shadow:0 10px 30px #e2708a66;
+  position:absolute;left:50%;top:10px;transform:translateX(-50%);
+  font-size:1.3rem;padding:18px 36px;
+}
+.yes:hover{transform:translateX(-50%) scale(1.06)}
+.no{
+  background:#ffffff14;color:var(--cream);border:1px solid #ffffff44;
+  position:absolute;left:50%;top:108px;transform:translateX(-50%);
+  transition:left .28s cubic-bezier(.3,1.4,.5,1),top .28s cubic-bezier(.3,1.4,.5,1);
+}
+.taunt{min-height:1.8em;color:var(--blush);font-style:italic;font-family:var(--serif);font-size:1.3rem;margin-top:8px}
+
+.thanks{
+  display:none;max-width:640px;margin:0 auto;text-align:center;
+}
+.thanks.show{display:block;animation:pop .8s cubic-bezier(.2,1.2,.3,1)}
+.thanks .big{font-family:var(--deva);font-size:clamp(2rem,7vw,3.2rem);color:var(--gold);margin-bottom:14px}
+@keyframes pop{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:none}}
+
+footer{text-align:center;padding:40px 22px 70px;color:var(--mute);font-family:var(--serif);font-style:italic;font-size:1.25rem}
+
+/* floating hearts */
+.heart{position:fixed;bottom:-30px;pointer-events:none;z-index:50;animation:rise linear forwards}
+@keyframes rise{to{transform:translateY(-115vh) rotate(var(--r));opacity:0}}
+
+/* reveal (one gentle entrance only for the letter) */
+.letter{opacity:0;transition:opacity 1s ease}
+.letter.in{opacity:1}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .letter{opacity:1}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="hero" id="top">
+  <svg class="wire" id="wire" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true">
+    <path id="wirePath" d="M0,14 Q125,86 250,26 T500,26 T750,26 T1000,14"/>
+  </svg>
+
+  <div class="arch"><img src="images/portrait.jpg" alt="Smiling portrait"></div>
+  <h1>I'm Sorry.</h1>
+  <p class="sub">A sincere apology, from me to you.</p>
+  <p class="hint"><span>↓</span> &nbsp;Please read on</p>
+</header>
+
+<section id="letter">
+  <h2>A letter to you</h2>
+  <p class="lead">What I wanted to say, but couldn't say well.</p>
+  <article class="letter" id="letterCard">
+    <p class="to">Dear love,</p>
+    <p>I know you're upset, and you have every right to be. I made a mistake, and I am <mark>truly sorry</mark> for it.</p>
+    <p>I thought a lot about how to say this. Every time, I came back to the same thing: no excuses, just an honest apology. So here it is. <mark>I'm sorry</mark>, and I mean it completely.</p>
+    <p>Your anger hurts because I never wanted to be the reason you felt let down. You mean a great deal to me, and seeing you unhappy is something I can't take lightly.</p>
+    <p>I'm going to learn from this, do better, and make sure you don't feel this way again.</p>
+    <p>Could you find it in your heart to forgive me?</p>
+    <p class="sign">Yours, always</p>
+  </article>
+</section>
+
+<section id="moments">
+  <h2>Moments I treasure</h2>
+  <p class="lead">Some of my favourite memories of us.</p>
+  <div class="gallery">
+    <figure class="pol">
+      <img src="images/together-birthday.jpg" alt="Together on the birthday night">
+      <figcaption>The two of us that night. You outshone every light in the room.</figcaption>
+    </figure>
+    <figure class="pol wide">
+      <img src="images/with-cake.jpg" alt="Smiling beside the birthday cake">
+      <figcaption>The cake was sweet, but your smile was sweeter.</figcaption>
+    </figure>
+    <figure class="pol">
+      <img src="images/rooftop-together.jpg" alt="Together on the rooftop">
+      <figcaption>This is all I need. You, me, and nights like this.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="promises">
+  <h2>My commitments to you</h2>
+  <p class="lead">Tap each one to accept it. I intend to keep every one.</p>
+  <ul class="promises" id="plist">
+    <li tabindex="0" role="checkbox" aria-checked="false"><span class="chk">✓</span><span class="t">I will listen fully before I respond.</span></li>
+    <li tabindex="0" role="checkbox" aria-checked="false"><span class="chk">✓</span><span class="t">I will stay kind, even when we disagree.</span></li>
+    <li tabindex="0" role="checkbox" aria-checked="false"><span class="chk">✓</span><span class="t">I will remember the small things that matter to you.</span></li>
+    <li tabindex="0" role="checkbox" aria-checked="false"><span class="chk">✓</span><span class="t">I will make sure you always feel valued.</span></li>
+    <li tabindex="0" role="checkbox" aria-checked="false"><span class="chk">✓</span><span class="t">And you always get the bigger slice of cake.</span></li>
+  </ul>
+</section>
+
+<section class="ask" id="ask">
+  <div id="askBox">
+    <h2>Will you forgive me?</h2>
+    <p class="lead" style="margin-bottom:0">I would be truly grateful.</p>
+    <div class="arena" id="arena">
+      <button class="btn yes" id="yes">Yes, I forgive you</button>
+      <button class="btn no" id="no">Not yet</button>
+    </div>
+    <p class="taunt" id="taunt"></p>
+  </div>
+
+  <div class="thanks" id="thanks" aria-live="polite">
+    <p class="big">Thank you.</p>
+    <p>Your forgiveness means everything to me. I promise to earn it every day, and to keep that smile on your face.</p>
+    <p style="margin-top:1em;color:var(--gold)">I love you, today and always.</p>
+  </div>
+</section>
+
+<footer>Made for you, with love.</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- fairy lights along the wire ---- */
+  var svg = document.getElementById('wire');
+  var path = document.getElementById('wirePath');
+  var len = path.getTotalLength();
+  var N = 22, bulbs = [];
+  for (var i = 0; i < N; i++){
+    var p = path.getPointAtLength(len * (i + .5) / N);
+    var c = document.createElementNS('http://www.w3.org/2000/svg','ellipse');
+    c.setAttribute('cx', p.x); c.setAttribute('cy', p.y + 7);
+    c.setAttribute('rx', 5); c.setAttribute('ry', 8);
+    c.setAttribute('class','bulb');
+    svg.appendChild(c); bulbs.push(c);
+  }
+  bulbs.forEach(function(b, i){
+    var d = reduce ? 0 : 140 * i + 300;
+    setTimeout(function(){
+      b.classList.add('on');
+      if (i % 2) { b.classList.add('tw'); b.style.animationDelay = (i * .2) + 's'; }
+    }, d);
+  });
+
+  /* ---- letter fade in ---- */
+  var card = document.getElementById('letterCard');
+  if ('IntersectionObserver' in window){
+    new IntersectionObserver(function(es, o){
+      es.forEach(function(e){ if (e.isIntersecting){ card.classList.add('in'); o.disconnect(); } });
+    }, {threshold:.15}).observe(card);
+  } else { card.classList.add('in'); }
+
+  /* ---- hearts ---- */
+  var icons = ['💛','🤍','✨','🌸'];
+  function hearts(n){
+    for (var i = 0; i < n; i++){
+      (function(i){
+        setTimeout(function(){
+          var h = document.createElement('div');
+          h.className = 'heart';
+          h.textContent = icons[Math.floor(Math.random()*icons.length)];
+          h.style.left = (Math.random()*96) + 'vw';
+          h.style.fontSize = (18 + Math.random()*26) + 'px';
+          h.style.setProperty('--r', (Math.random()*80-40) + 'deg');
+          h.style.animationDuration = (3.5 + Math.random()*3) + 's';
+          document.body.appendChild(h);
+          setTimeout(function(){ h.remove(); }, 7500);
+        }, i * 90);
+      })(i);
+    }
+  }
+
+  /* ---- promises ---- */
+  var items = document.querySelectorAll('#plist li');
+  function toggle(li){
+    var on = li.classList.toggle('done');
+    li.setAttribute('aria-checked', on);
+    if (on) hearts(5);
+    if (document.querySelectorAll('#plist li.done').length === items.length) hearts(30);
+  }
+  items.forEach(function(li){
+    li.addEventListener('click', function(){ toggle(li); });
+    li.addEventListener('keydown', function(e){
+      if (e.key === ' ' || e.key === 'Enter'){ e.preventDefault(); toggle(li); }
+    });
+  });
+
+  /* ---- the runaway "no" button ---- */
+  var arena = document.getElementById('arena');
+  var no = document.getElementById('no');
+  var yes = document.getElementById('yes');
+  var taunt = document.getElementById('taunt');
+  var tries = 0;
+  var lines = [
+    'That button seems to be avoiding you.',
+    'It really does not want to be clicked.',
+    'Perhaps the other option?',
+    'I am sorry, truly.',
+    'Give me one more chance?',
+    'The button on top is much easier to press.'
+  ];
+  function dodge(e){
+    if (e) e.preventDefault();
+    var r = arena.getBoundingClientRect();
+    var bw = no.offsetWidth, bh = no.offsetHeight;
+    var x = Math.random() * (r.width - bw);
+    var y = 70 + Math.random() * (r.height - bh - 70);
+    no.style.left = (x + bw/2) + 'px';
+    no.style.top = y + 'px';
+    taunt.textContent = lines[tries % lines.length];
+    tries++;
+    if (tries > 4){ yes.style.transform = 'translateX(-50%) scale(' + Math.min(1.5, 1 + (tries-4)*.08) + ')'; }
+  }
+  no.addEventListener('pointerenter', dodge);
+  no.addEventListener('pointerdown', dodge);
+  no.addEventListener('click', dodge);
+
+  yes.addEventListener('click', function(){
+    document.getElementById('askBox').style.display = 'none';
+    document.getElementById('thanks').classList.add('show');
+    hearts(60);
+    setTimeout(function(){ hearts(40); }, 2500);
+  });
+})();
+</script>
+</body>
+</html>
